@@ -1,7 +1,6 @@
 require 'test_helper'
 
 describe 'any? all? and none?' do
-#  let(:flags) { Order.act_with_flags }
   let(:order) { Order.new }
 
   def setup
