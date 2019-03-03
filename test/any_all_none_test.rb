@@ -5,7 +5,7 @@ describe 'any? all? and none?' do
 
   def setup
     reset_order
-    Order.add_to_flags a: 1, b: 7
+    Order.add_to_flags a: 1, b: 7, c: 3
   end
 
   it 'checks any?' do

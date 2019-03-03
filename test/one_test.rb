@@ -3,7 +3,6 @@ require 'test_helper'
 
 describe 'One Flag' do
   let(:flag)  { :blocked }
-  let(:flags) { Order.act_with_flags }
   let(:order) { Order.new }
 
   def setup
