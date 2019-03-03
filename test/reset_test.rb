@@ -8,23 +8,10 @@ describe 'Testing reset' do
     Order.add_to_flags :a
   end
 
-  it 'reset default' do
-    Order.add_to_flags
-    refute order.respond_to?(:reset)
-  end
-
   it 'reset hard' do
-    Order.add_to_flags reset: :hard
-    refute order.respond_to?(:reset)
-  end
-
-  it 'reset 1' do
-    Order.add_to_flags reset: 1
-    assert order.respond_to?(:reset)
-  end
-
-  it 'reset wrong' do
-    assert_raises { Order.add_to_flags reset: :a }
+    refute_equal [], Order.add_to_flags.names
+    Order.act_with_flags.reset  if Order.act_with_flags
+    assert_equal [], Order.add_to_flags.names
   end
 
 end

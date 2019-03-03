@@ -7,7 +7,7 @@ describe 'No Flags' do
     Order.add_to_flags
   end
 
-  it 'ActWithFlags API' do
+  it 'respond to ActWithFlags API' do
     assert Order.respond_to?(:add_to_flags)
     assert Order.respond_to?(:remove_from_flags)
     assert Order.respond_to?(:clear_flags_at_save)

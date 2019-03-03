@@ -23,13 +23,8 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Schema.define do
   create_table 'orders', force: true do |t|
     t.integer :flags
-    t.string  :bigflaags
-    t.string  :category
-  end
-
-  create_table 'users', force: true do |t|
-    t.string :type
-    t.text   :bag
+    t.string  :bigflags
+    t.integer :category
   end
 end
 
@@ -37,5 +32,5 @@ class Order < ActiveRecord::Base
 end
 
 def reset_order
-  Order.add_to_flags reset: :hard
+  Order.act_with_flags.reset  if Order.act_with_flags
 end
