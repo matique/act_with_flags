@@ -54,7 +54,6 @@ class ActWithFlags::Admin
     values = @map.values
     pos ||= (0..@max_position).detect { |i| !values.include?(i) }
     raise "invalid position '#{name} @ #{pos}'"  unless pos
-#    raise "invalid position '#{name} @ #{pos}.'" if pos > @max_position
     raise "name in use '#{name} @ #{pos}'"       if @map.key?(name)
     raise "position in use '#{name} @ #{pos}'"   if @map.value?(pos)
     @map[name] = pos
