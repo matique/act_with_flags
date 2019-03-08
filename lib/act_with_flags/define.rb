@@ -10,18 +10,28 @@ class ActWithFlags::Admin
       end
 
       def #{accessor}?
-        !( self.#{origin} & #{mask} ).zero?
+        if #{origin}.is_a?(String)
+          flags = self.#{origin}.to_i
+          !( flags & #{mask} ).zero?
+        else
+          !( self.#{origin} & #{mask} ).zero?
+        end
       end
 
       def #{accessor}=(value)
-        self.#{origin} ||= 0
-        if self.class.act_with_flags.to_boolean(value)
-          self.#{origin} |= #{mask}
-          true
+        is_a_string = #{origin}.is_a?(String)
+        flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
+        flags ||= 0
+
+        result = self.class.act_with_flags.to_boolean(value)
+        if result
+          flags |= #{mask}
         else
-          self.#{origin} &= ~#{mask}
-          false
+          flags &= ~#{mask}
         end
+        self.#{origin} = is_a_string ? flags.to_s : flags
+
+        result
       end
     )
   end

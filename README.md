@@ -2,6 +2,8 @@
 [![Gem Version](https://badge.fury.io/rb/act_with_flags.png)](http://badge.fury.io/rb/act_with_flags)
 [![Build Status](https://travis-ci.org/matique/act_with_flags.png?branch=master)](https://travis-ci.org/matique/act_with_flags)
 
+Required by key.matique.
+
 ## Installation
 
 Add this line to your application's Gemfile:

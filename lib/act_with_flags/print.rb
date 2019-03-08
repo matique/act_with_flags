@@ -6,7 +6,7 @@ class ActWithFlags::Admin
   def to_s
     res = []
     res << title('Variables')
-    res << variables(:origin, :max_position, :boolean_hash)
+    res << variables(:origin, :boolean_hash)
     res << variables(:delete_mask)
 
     res << title('Flags sorted alfabetically')

@@ -12,7 +12,7 @@ class ActWithFlags::Admin
     @origin = :flags
     @map = {}
     @delete_mask = 0
-    @max_position = 128 - 1
+    @max_position = 512 - 1
     @boolean_hash = {}
     [true,  'true',  1, '1'].each { |x| @boolean_hash[x] = true }
     [false, 'false', 0, '0'].each { |x| @boolean_hash[x] = false }
@@ -54,6 +54,7 @@ class ActWithFlags::Admin
     values = @map.values
     pos ||= (0..@max_position).detect { |i| !values.include?(i) }
     raise "invalid position '#{name} @ #{pos}'"  unless pos
+#    raise "invalid position '#{name} @ #{pos}.'" if pos > @max_position
     raise "name in use '#{name} @ #{pos}'"       if @map.key?(name)
     raise "position in use '#{name} @ #{pos}'"   if @map.value?(pos)
     @map[name] = pos
