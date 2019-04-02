@@ -16,17 +16,12 @@ class ActWithFlags::Admin
           flags = self.#{origin}.to_i
           !( flags & #{mask} ).zero?
         else
-#p [14, self]
-#p [15, self.#{origin}, #{mask}]
-#p [16, #{origin}]
-#p [17, "@#{origin}"]
           !( self.#{origin} & #{mask} ).zero?
         end
       end
 
       def #{accessor}=(value)
         raise "Uninitialized '#{model}.#{origin}'"  if #{origin}.nil?
-#p [50, self]
         is_a_string = #{origin}.is_a?(String)
         flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
         flags ||= 0
