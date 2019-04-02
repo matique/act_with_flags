@@ -34,12 +34,6 @@ class ActWithFlags::Admin
   end
 
   def origin=(name)
-p [888, self]
-p [80, @map]
-p [81, @map.empty?]
-p [82, origin == name]
-p [82, origin, name]
-p [83, @origin]
     raise 'invalid update of origin'  unless @map.empty? || (origin == name)
     @origin = name
   end
