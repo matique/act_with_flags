@@ -4,7 +4,7 @@
 class ActWithFlags::Admin
 
   def add_accessors(origin, accessor, mask)
-#p [22, model, origin, accessor, mask]
+p [22, model, origin, accessor, mask]
     model.class_eval %(
       def #{accessor}
         #{accessor}?
@@ -21,17 +21,25 @@ class ActWithFlags::Admin
       end
 
       def #{accessor}=(value)
+p [11111111111, self]
+p [13, self.flags]
+p [14, Order.act_with_flags]
+p [12, self.act_with_flags]
         raise "Uninitialized '#{model}.#{origin}'"  if #{origin}.nil?
         is_a_string = #{origin}.is_a?(String)
         flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
         flags ||= 0
+p 15
 
         result = self.class.act_with_flags.to_boolean(value)
+p [151, self.act_with_flags]
+p 16
         if result
           flags |= #{mask}
         else
           flags &= ~#{mask}
         end
+p 17
         self.#{origin} = is_a_string ? flags.to_s : flags
 
         result

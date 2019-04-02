@@ -11,7 +11,7 @@
 
 class << ActiveRecord::Base
 
-if 1 == 10
+if 1 == 1
 p 111
   attr_accessor :act_with_flags
 else
