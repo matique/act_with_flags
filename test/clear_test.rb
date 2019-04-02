@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe 'Clear Flags at Save' do
   let(:admin) { Order.act_with_flags }
-  let(:order) { Order.new }
+  let(:order) { Order.create }
 
   def setup
     reset_order

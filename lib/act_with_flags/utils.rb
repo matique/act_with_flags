@@ -1,6 +1,3 @@
-# xrubocop:disable all
-# xfrozen_string_literal: true
-
 class ActWithFlags::Admin
 
   def add_accessor(name, pos)

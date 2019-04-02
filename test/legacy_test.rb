@@ -2,7 +2,7 @@
 require 'test_helper'
 
 describe 'Legacy Flag' do
-  let(:order) { Order.new }
+  let(:order) { Order.create }
 
   def setup
     reset_order
