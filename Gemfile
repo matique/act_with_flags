@@ -8,7 +8,6 @@ group :test do
   gem 'observr'
   gem 'simplecov', require: false
   gem 'minitest'
-  gem 'sqlite3', '!= 1.4.0'
   gem 'benchmark-ips'
-#  gem 'sqlite3'
+  gem 'sqlite3'
 end

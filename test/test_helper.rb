@@ -29,6 +29,10 @@ ActiveRecord::Schema.define do
 end
 
 class Order < ActiveRecord::Base
+  before_create { |row|
+    row.flags ||= 0
+    row.bigflags ||= ''
+  }
 end
 
 def reset_order

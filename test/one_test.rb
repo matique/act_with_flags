@@ -3,7 +3,7 @@ require 'test_helper'
 
 describe 'One Flag' do
   let(:flag)  { :blocked }
-  let(:order) { Order.new }
+  let(:order) { Order.create }
 
   def setup
     reset_order
