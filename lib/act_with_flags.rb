@@ -11,17 +11,7 @@
 
 class << ActiveRecord::Base
 
-if 1 == 1
-p 111
   attr_accessor :act_with_flags
-else
-p 222
-  attr_writer :act_with_flags
-
-  def act_with_flags
-    @act_with_flags ||= ActWithFlags::Admin.new self
-  end
-end
 
   def add_to_flags(*flags, origin: :flags, **hash)
 #p "act_with_flags: add_to_flags #{flags.inspect}"

@@ -39,10 +39,24 @@ class ActWithFlags::Admin
   end
 
   def position(name)
-    @map[name]
+p [89, name]
+#p [891, @map]
+#p [892, self]
+#p [893, self.model]
+#p [894, self.model.superclass]
+p [894, self.model.superclass.act_with_flags]
+#puts self.to_s
+    pos = @map[name]
+    return pos  if pos
+
+    parent = self.model.superclass.act_with_flags
+    return parent.position(name)  if parent
+
+    raise "unknown flag '#{model}##{name}'"
   end
 
   def mask(*names)
+p [88, *names]
     names.inject(0) { |msk, name| msk | ( 1 << position(name) ) }
   end
 

@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class A < Order
+p 4444444444444444444
   add_to_flags y: 2
 end
 
@@ -9,6 +10,7 @@ describe 'inheritance' do
 
   def setup
     reset_order
+p 555555555555
     Order.add_to_flags x: 1
   end
 
@@ -22,6 +24,7 @@ describe 'inheritance' do
   end
 
   it 'checks any?' do
+p 11111111111111111111
     a.x = true
     assert a.flags_any?(:x, :y)
     a.x = false
@@ -29,6 +32,7 @@ describe 'inheritance' do
   end
 
   it 'checks any? #2' do
+p 22222222222222222222
     a.y = true
     assert a.flags_any?(:x, :y)
     a.y = false
