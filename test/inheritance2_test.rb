@@ -35,7 +35,6 @@ describe 'inheritance' do
 #  end
 
   it 'inheritance #2' do
-p 3333333333333333333
     a.f = false
 return
     assert_equal false, a.f
