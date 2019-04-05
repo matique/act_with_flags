@@ -34,7 +34,6 @@ class ActWithFlags::Admin
         flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
         flags ||= 0
 
-#        result = self.class.act_with_flags.to_boolean(value)
         result = self.act_with_flags.to_boolean(value)
         if result
           flags |= #{mask}
