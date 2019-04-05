@@ -5,6 +5,14 @@ class ActWithFlags::Admin
 
   def add_accessors(origin, accessor, mask)
 #p "act_with_flags#add_accessors: model, origin, accessor, mask]
+    unless model.method_defined?(:act_with_flags)
+      model.class_eval %(
+        def act_with_flags
+          #{model}.act_with_flags
+        end
+      )
+    end
+
     model.class_eval %(
       def #{accessor}
         #{accessor}?
@@ -26,7 +34,8 @@ class ActWithFlags::Admin
         flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
         flags ||= 0
 
-        result = self.class.act_with_flags.to_boolean(value)
+#        result = self.class.act_with_flags.to_boolean(value)
+        result = self.act_with_flags.to_boolean(value)
         if result
           flags |= #{mask}
         else
