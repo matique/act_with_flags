@@ -4,7 +4,7 @@
 class ActWithFlags::Admin
 
   def add_accessors(origin, accessor, mask)
-#p "act_with_flags#add_accessors: model, origin, accessor, mask]
+#p ["act_with_flags#add_accessors:", model, origin, accessor, mask]
     unless model.method_defined?(:act_with_flags)
       model.class_eval %(
         def act_with_flags
