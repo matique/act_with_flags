@@ -4,14 +4,14 @@ class A < Order
 end
 
 class B < Order
-  add_to_flags x: 2
+  add_to_flags y: 2
 end
 
 class C < Order
   before_create { |row|  row.flags2 = 0 }
 
   attr_accessor :flags2
-  add_to_flags y: 3, origin: :flags2
+  add_to_flags z: 3, origin: :flags2
 end
 
 describe 'inheritance' do
@@ -24,50 +24,48 @@ describe 'inheritance' do
 
   def setup
     reset_order
-    Order.add_to_flags f: 1
+    Order.add_to_flags x: 1
   end
 
-#  it 'inheritance #1' do
-#    assert a.respond_to?(:flags)
-#    assert a.respond_to?(:f)
-#    assert_equal 0, a.flags
-#    assert_equal false, a.f
-#  end
+  it 'inheritance #1' do
+    assert a.respond_to?(:flags)
+    assert a.respond_to?(:x)
+    assert_equal 0, a.flags
+    assert_equal false, a.x
+  end
 
   it 'inheritance #2' do
-p 3333333333333333333
-    a.f = false
-return
-    assert_equal false, a.f
-    a.f = true
-    assert_equal true, a.f
+    a.x = false
+    assert_equal false, a.x
+    a.x = true
+    assert_equal true, a.x
     assert_equal 0x02, a.flags
   end
 
-#  it 'inheritance #3' do
-#    assert b.respond_to?(:flags)
-#    assert b.respond_to?(:f)
-#    assert b.respond_to?(:x)
-#    assert_equal 0, b.flags
-#    assert_equal false, b.f
-#    assert_equal false, b.x
-#    b.f = true
-#    assert_equal true, b.f
-#    b.x = true
-#    assert_equal true, b.x
-#    assert_equal 0x06, b.flags
-#  end
-#
-#  it 'inheritance #4' do
-#    assert c.respond_to?(:f)
-#    assert c.respond_to?(:y)
-#    assert_equal false, c.y
-#    c.f = true
-#    assert_equal true, c.f
-#    c.y = true
-#    assert_equal true, c.y
-#    assert_equal 0x02, c.flags
-#    assert_equal 0x08, c.flags2
-#  end
+  it 'inheritance #3' do
+    assert b.respond_to?(:flags)
+    assert b.respond_to?(:x)
+    assert b.respond_to?(:y)
+    assert_equal 0, b.flags
+    assert_equal false, b.x
+    assert_equal false, b.y
+    b.x = true
+    assert_equal true, b.x
+    b.y = true
+    assert_equal true, b.y
+    assert_equal 0x06, b.flags
+  end
+
+  it 'inheritance #4' do
+    assert c.respond_to?(:x)
+    assert c.respond_to?(:z)
+    assert_equal false, c.z
+    c.x = true
+    assert_equal true, c.x
+    c.z = true
+    assert_equal true, c.z
+    assert_equal 0x02, c.flags
+    assert_equal 0x08, c.flags2
+  end
 
 end

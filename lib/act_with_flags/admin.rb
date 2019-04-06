@@ -39,7 +39,13 @@ class ActWithFlags::Admin
   end
 
   def position(name)
-    @map[name]
+    pos = @map[name]
+    return pos  if pos
+
+    parent = self.model.superclass.act_with_flags
+    return parent.position(name)  if parent
+
+    raise "unknown flag '#{model}##{name}'"
   end
 
   def mask(*names)
