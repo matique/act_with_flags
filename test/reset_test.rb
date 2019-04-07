@@ -10,7 +10,7 @@ describe 'Testing reset' do
 
   it 'reset hard' do
     refute_equal [], Order.add_to_flags.names
-    Order.act_with_flags.reset  if Order.act_with_flags
+    Order.act_with_flags&.reset
     assert_equal [], Order.add_to_flags.names
   end
 

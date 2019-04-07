@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 class ActWithFlags::Admin
 
   def add_accessor(name, pos)
@@ -43,7 +45,7 @@ class ActWithFlags::Admin
     names.each { |name|
       remove_accessor name
     }
-    self.reset_model model
+    reset_model model
   end
 
 end

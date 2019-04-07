@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 require 'test_helper'
 
 class A < Order

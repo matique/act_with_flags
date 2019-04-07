@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 require 'test_helper'
 
 describe 'Internal One Flag' do
