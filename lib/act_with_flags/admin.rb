@@ -52,10 +52,6 @@ class ActWithFlags::Admin
     names.inject(0) { |msk, name| msk | ( 1 << position(name) ) }
   end
 
-  def all?(*names)
-    names.inject(0) { |msk, name| msk | ( 1 << position(name) ) }
-  end
-
   def add(name, pos)
     values = @map.values
     pos ||= (0..@max_position).detect { |i| !values.include?(i) }

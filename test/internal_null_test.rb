@@ -16,9 +16,9 @@ describe 'Internal Null' do
   it 'tests to_boolean' do
     assert admin.to_boolean(true)
     refute admin.to_boolean(false)
-    assert_raises { flags.to_boolean(nil) }
-    assert_raises { flags.to_boolean(2) }
-    assert_raises { flags.to_boolean('unknown') }
+    assert_raises { admin.to_boolean(nil) }
+    assert_raises { admin.to_boolean(2) }
+    assert_raises { admin.to_boolean('unknown') }
   end
 
   it 'tests a simple administration: names' do

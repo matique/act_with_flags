@@ -8,7 +8,7 @@ require 'benchmark/ips'
 # ENV['MORE'] = 'true'
 
 describe 'Internal timings' do
-  let(:order) { Order.new }
+  let(:order) { Order.create }
 
   def setup
     reset_order
@@ -17,9 +17,6 @@ describe 'Internal timings' do
 
   it 'times ips' do
     return  unless ENV['MORE']
-
-    Order.add_to_flags :blocked, reset: :hard
-    order = Order.new
 
     Benchmark.ips do |x|
       x.report('assign true : ')        { order.blocked = true }
@@ -42,12 +39,12 @@ class BenchFoo < Minitest::Benchmark
     n = 1_000_000
     n = 100_000
     n = 10_000
-    Order.add_to_flags :blocked, reset: :hard
-    order = Order.new
+    Order.add_to_flags :blocked2
+    order = Order.create
     assert_performance_constant do |input|
       n.times do
-        order.blocked = true
-        order.blocked = !order.blocked
+        order.blocked2 = true
+        order.blocked2 = !order.blocked2
       end
     end
   end

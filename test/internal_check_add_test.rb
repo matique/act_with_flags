@@ -29,4 +29,8 @@ describe 'Internal check add flag' do
     puts res  if ENV['MORE']
   end
 
+  it 'coverage position raise' do
+    assert_raises { admin.position(:aaaa) }
+  end
+
 end
