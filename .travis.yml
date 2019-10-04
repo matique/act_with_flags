@@ -8,10 +8,12 @@ bundler_args: --without production
 script: "bundle exec rake test"
 
 rvm:
+#  - 2.6.4
   - 2.6.1
 
 gemfile:
-#  - gemfiles/rails_5.2.gemfile
+#  - gemfiles/rails_6.0.gemfile
+  - gemfiles/rails_5.2.gemfile
 
 matrix:
 
