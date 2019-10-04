@@ -1,13 +1,17 @@
-# rubocop:disable all
+#require 'simplecov'
+#SimpleCov.start do
+#  add_filter 'test'
+#end
 
-require 'simplecov'
-SimpleCov.start do
-  add_filter 'test'
-end
+require "combustion"
+Combustion.path = "test/internal"
+Combustion.initialize! :all
 
 require 'rubygems'
 require 'minitest/autorun'
 require 'minitest/benchmark'
+
+=begin
 require 'active_record'
 require_relative '../lib/act_with_flags.rb'
 
@@ -36,3 +40,4 @@ end
 def reset_order
   Order.act_with_flags.reset  if Order.act_with_flags
 end
+=end
