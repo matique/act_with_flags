@@ -11,6 +11,12 @@ require 'rubygems'
 require 'minitest/autorun'
 require 'minitest/benchmark'
 
+#ENV['RAILS_ENV'] ||= 'test'
+
+def reset_order
+  Order.act_with_flags.reset  if Order.act_with_flags
+end
+
 =begin
 require 'active_record'
 require_relative '../lib/act_with_flags.rb'
