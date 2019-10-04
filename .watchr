@@ -16,19 +16,16 @@ end
 
 def run_it(type, file)
   case type
-#  when 'test';  run %Q{ruby -I"lib:test" -rubygems #{file}}
-  when 'test';  run %Q{ruby -I test #{file}}
+  when 'test';  run %Q{ruby -I"lib:test" -r rubygems #{file}}
 #  when 'test';  run %Q{rails test #{file}}
-#  when 'spec';  run %Q{spring rspec -X #{file}}
+#  when 'spec';  run %Q{rspec -X #{file}}
   else;         puts "#{H} unknown type: #{type}, file: #{file}"
   end
 end
 
 def run_all_tests
   puts "\n#{HH} Running all tests #{HH}\n"
-#  %w{test spec}.each { |dir| run "spring rake #{dir} RAILS_ENV=test"  if  File.exists?(dir) }
-#  %w{test}.each { |dir| run "spring rake #{dir} RAILS_ENV=test"  if  File.exists?(dir) }
-  %w{test}.each { |dir| run "rake #{dir} RAILS_ENV=test"  if  File.exists?(dir) }
+  %w{test spec}.each { |dir| run "rake #{dir} RAILS_ENV=test"  if  File.exists?(dir) }
 end
 
 def run_matching_files(base)
