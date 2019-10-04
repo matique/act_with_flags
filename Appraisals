@@ -3,5 +3,5 @@ appraise 'rails-6.0' do
 end
 
 appraise 'rails-5.2' do
-  gem 'rails', '~> 5.2'
+  gem 'rails', '~> 5.2.0'
 end
