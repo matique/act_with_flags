@@ -1,5 +1,3 @@
-# inherit_from: .rubocop_todo.yml
-
 # rubocop --auto-gen-config
 # rubocop
 # rubocop:disable all
@@ -23,22 +21,13 @@ AllCops:
     - '**/Gemfile'
 #    - '**/Rakefile'
 
-#AllCops:
-#  Exclude:
-#    - 'db/**/*'
-#    - 'config/**/*'
-#    - 'script/**/*'
-#    - 'bin/{rails,rake}'
-#    - 'spec/**/*'
-#    - !ruby/regexp /old_and_unused\.rb$/
-
 Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
 
 Layout/AccessModifierIndentation:
   Enabled: false
-Layout/AlignArray:
+Layout/ArrayAlignment:
   Enabled: false
 Layout/CommentIndentation:
   Enabled: false
@@ -50,7 +39,7 @@ Layout/EmptyLinesAroundClassBody:
   Enabled: false
 Layout/ExtraSpacing:
   Enabled: false
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   Enabled: false
 Layout/IndentationWidth:
   Enabled: false
