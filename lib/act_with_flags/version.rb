@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+# rubocop: disable all
 
 module ActWithFlags
-  VERSION = '0.2.1'     # 2020-03-01
+  VERSION = '0.2.2'     # 2020-04-27
+# VERSION = '0.2.1'     # 2020-03-01
 # VERSION = '0.2.0'     # 2019-10-04
 # VERSION = '0.1.0'     # 2019-04-07
 # VERSION = '0.0.7'     # 2019-03-23
