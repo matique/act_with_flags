@@ -1,8 +1,7 @@
-require 'bundler/setup'
-
 require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |t|
+desc 'Run the tests.'
+Rake::TestTask.new do |t|
   t.libs << 'lib'
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
