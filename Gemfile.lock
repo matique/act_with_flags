@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    act_with_flags (0.2.2)
+    act_with_flags (0.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -93,7 +93,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     observr (1.0.5)
     parallel (1.19.2)
@@ -132,16 +132,16 @@ GEM
     rake (13.0.1)
     regexp_parser (1.7.1)
     rexml (3.2.4)
-    rubocop (0.85.1)
+    rubocop (0.88.0)
       parallel (~> 1.10)
-      parser (>= 2.7.0.1)
+      parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.7)
       rexml
-      rubocop-ast (>= 0.0.3)
+      rubocop-ast (>= 0.1.0, < 1.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.0.3)
+    rubocop-ast (0.1.0)
       parser (>= 2.7.0.1)
     ruby-progressbar (1.10.1)
     simplecov (0.18.5)
@@ -161,10 +161,10 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
@@ -173,15 +173,15 @@ DEPENDENCIES
   act_with_flags!
   appraisal (~> 2)
   benchmark-ips
-  bundler
-  combustion
-  minitest
+  bundler (~> 1)
+  combustion (~> 1)
+  minitest (~> 5.0)
   observr
   rails
-  rake
+  rake (~> 13)
   rubocop
   simplecov
-  sqlite3
+  sqlite3 (~> 1)
 
 BUNDLED WITH
    1.17.3
