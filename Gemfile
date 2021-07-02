@@ -1,11 +1,11 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 gemspec
 
-gem 'rails'
+gem "rails"
 
 group :test do
-  gem 'observr'
-  gem 'rubocop', require: false
-  gem 'simplecov', require: false
-  gem 'benchmark-ips'
+  gem "observr"
+  gem "rubocop", require: false
+  gem "simplecov", require: false
+  gem "benchmark-ips"
 end

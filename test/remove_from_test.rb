@@ -1,6 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
-describe 'Delete from Flags' do
+describe "Delete from Flags" do
   let(:order) { Order.create }
 
   def setup
@@ -9,10 +9,9 @@ describe 'Delete from Flags' do
     order.a = order.b = order.c = true
   end
 
-  it 'remove accessors' do
+  it "remove accessors" do
     Order.remove_from_flags :b
     assert_raises { order.b }
     refute Order.respond_to?(:b)
   end
-
 end

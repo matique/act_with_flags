@@ -1,6 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
-describe 'Testing reset' do
+describe "Testing reset" do
   let(:order) { Order.new }
 
   def setup
@@ -8,10 +8,9 @@ describe 'Testing reset' do
     Order.add_to_flags :a
   end
 
-  it 'reset hard' do
+  it "reset hard" do
     refute_equal [], Order.add_to_flags.names
     Order.act_with_flags&.reset
     assert_equal [], Order.add_to_flags.names
   end
-
 end
