@@ -15,6 +15,5 @@ require "minitest/benchmark"
 # require 'capybara/rails'
 
 def reset_order
-  # Order.act_with_flags.reset if Order.act_with_flags
   Order.act_with_flags&.reset
 end
