@@ -1,16 +1,14 @@
-# rubocop:disable all
 # frozen_string_literal: true
 
 class ActWithFlags::Admin
-
-  def add_accessors(origin, accessor, mask)
-#p ["act_with_flags#add_accessors:", model, origin, accessor, mask]
+  def add_accessors(accessor, origin, mask)
+    # ic  "add_accessors", accessor, origin, mask
     unless model.method_defined?(:act_with_flags)
       model.class_eval %(
         def act_with_flags
           #{model}.act_with_flags
         end
-      )
+      ), __FILE__, __LINE__ - 4
     end
 
     model.class_eval %(
@@ -44,16 +42,18 @@ class ActWithFlags::Admin
 
         result
       end
-    )
+    ), __FILE__, __LINE__ - 31
   end
 
   def remove_accessor(accessor)
     my_undef model, accessor, "#{accessor}?", "#{accessor}="
   end
 
+  private
+
   def validate_accessor(*names)
     names.each { |acc|
-      raise "redefining #{acc} rejected"  if model.method_defined?(acc)
+      raise "redefining #{acc} rejected" if model.method_defined?(acc)
     }
   end
 
@@ -64,16 +64,7 @@ class ActWithFlags::Admin
           undef #{name}
         rescue
         end
-      )
+      ), __FILE__, __LINE__ - 5
     }
   end
-
-  def before_save
-    model.class_eval %(
-      before_save do |row|
-        row.#{origin} &= ~row.class.act_with_flags.delete_mask
-      end
-    )
-  end
-
 end

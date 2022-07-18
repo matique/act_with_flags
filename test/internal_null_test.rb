@@ -20,9 +20,4 @@ describe "Internal Null" do
     assert_raises { admin.to_boolean(2) }
     assert_raises { admin.to_boolean("unknown") }
   end
-
-  it "tests a simple administration: names" do
-    refute_nil admin.names
-    assert_equal [], admin.names
-  end
 end

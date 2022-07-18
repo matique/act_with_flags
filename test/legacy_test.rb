@@ -1,7 +1,6 @@
-# rubocop:disable all
-require 'test_helper'
+require "test_helper"
 
-describe 'Legacy Flag' do
+describe "Legacy Flag" do
   let(:order) { Order.create }
 
   def setup
@@ -9,23 +8,24 @@ describe 'Legacy Flag' do
     Order.add_to_flags a: 1, b: 7, c: 3
   end
 
-  it 'set true' do
+  it "set true" do
     test3 true, true, true
   end
 
-  it 'set false' do
+  it "set false" do
     test3 false, false, false
   end
 
-  it 'set mixture' do
+  it "set mixture" do
     test3 false, true, false
   end
 
-  it 'set mixture #2' do
+  it "set mixture #2" do
     test3 true, false, true
   end
 
- private
+  private
+
   def test3(a, b, c)
     order.a = a
     order.b = b
@@ -35,5 +35,4 @@ describe 'Legacy Flag' do
     assert_equal b, order.b
     assert_equal c, order.c
   end
-
 end

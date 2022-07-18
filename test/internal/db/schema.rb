@@ -5,6 +5,8 @@ ActiveRecord::Schema.define(version: 201910) do
     t.integer "flags"
     t.text "bigflags"
     t.integer "category"
+    t.integer "origin1"
+    t.integer "origin2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

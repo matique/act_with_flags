@@ -9,8 +9,10 @@ describe "Testing reset" do
   end
 
   it "reset hard" do
-    refute_equal [], Order.add_to_flags.names
+    empty = {}
+    refute_equal empty, Order.add_to_flags.locations
+
     Order.act_with_flags&.reset
-    assert_equal [], Order.add_to_flags.names
+    assert_equal empty, Order.add_to_flags.locations
   end
 end

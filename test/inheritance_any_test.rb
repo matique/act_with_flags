@@ -1,12 +1,10 @@
-# rubocop: disable all
-
-require 'test_helper'
+require "test_helper"
 
 class A < Order
   add_to_flags y: 2
 end
 
-describe 'inheritance' do
+describe "inheritance" do
   let(:a) { A.create }
 
   def setup
@@ -14,7 +12,7 @@ describe 'inheritance' do
     Order.add_to_flags x: 1
   end
 
-  it 'consistency' do
+  it "consistency" do
     assert a.respond_to?(:x)
     assert a.respond_to?(:y)
     assert_equal false, a.x
@@ -23,28 +21,28 @@ describe 'inheritance' do
     assert_equal true, a.y
   end
 
-  it 'checks any?' do
+  it "checks any?" do
     a.x = true
     assert a.flags_any?(:x, :y)
     a.x = false
     refute a.flags_any?(:x, :y)
   end
 
-  it 'checks any? #2' do
+  it "checks any? #2" do
     a.y = true
     assert a.flags_any?(:x, :y)
     a.y = false
     refute a.flags_any?(:x, :y)
   end
 
-  it 'checks all?' do
+  it "checks all?" do
     a.x = a.y = true
     assert a.flags_all?(:x, :y)
     a.x = false
     refute a.flags_all?(:x, :y)
   end
 
-  it 'checks none? #2' do
+  it "checks none? #2" do
     a.x = a.y = true
     refute a.flags_none?(:x, :y)
     a.x = false
@@ -52,5 +50,4 @@ describe 'inheritance' do
     a.y = false
     assert a.flags_none?(:x, :y)
   end
-
 end

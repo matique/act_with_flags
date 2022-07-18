@@ -1,4 +1,3 @@
-# rubocop:disable all
 # frozen_string_literal: true
 
 # Principles:
@@ -8,47 +7,37 @@
 #  POLS
 #  DEI
 #  TDD considered harmful
+#  TGCB
 
 class << ActiveRecord::Base
-
   attr_accessor :act_with_flags
 
   def add_to_flags(*flags, origin: :flags, **hash)
-#p "act_with_flags: add_to_flags #{flags.inspect}"
-#p "act_with_flags: origin #{origin.inspect}"
-#p "act_with_flags: hash   #{hash.inspect}"
-
-    @act_with_flags ||= ActWithFlags::Admin.new self
-    if origin.is_a?(Integer)
-      hash[:origin] = origin
-    else
-      @act_with_flags.origin = origin
-      @act_with_flags.delete_mask_et_all
+    unless @act_with_flags
+      @act_with_flags ||= ActWithFlags::Admin.new self
       @act_with_flags.add_mask_et_all origin
     end
 
-    flags.each { |name|      @act_with_flags.add_accessor(name, nil) }
-    hash.each  { |name, pos| @act_with_flags.add_accessor(name, pos) }
+    flags.each { |name| @act_with_flags.add_flag(name, origin, nil) }
+    hash.each { |name, pos| @act_with_flags.add_flag(name, origin, pos) }
 
     @act_with_flags
   end
 
   def remove_from_flags(*flags)
-#p "remove_from_flags #{flags.inspect}"
     flags.each { |name| @act_with_flags.remove_accessor(name) }
   end
 
   def clear_flags_at_save(*flags)
-#p "clear_flags_at_save #{flags.inspect}"
-    flags.each { |name| @act_with_flags.add_to_delete_mask(name) }
-    @act_with_flags.before_save
+    @act_with_flags.clear_at_save(*flags)
   end
-
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
-require 'act_with_flags/version'
-require 'act_with_flags/utils'
-require 'act_with_flags/define'
-require 'act_with_flags/admin'
-require 'act_with_flags/print'
+require "act_with_flags/version"
+require "act_with_flags/utils"
+require "act_with_flags/define"
+require "act_with_flags/admin"
+require "act_with_flags/flags"
+require "act_with_flags/clear"
+require "act_with_flags/print"

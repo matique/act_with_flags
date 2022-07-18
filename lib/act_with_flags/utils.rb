@@ -1,16 +1,13 @@
-# rubocop: disable all
+# frozen_string_literal: true
 
 class ActWithFlags::Admin
-
-  def add_accessor(name, pos)
-#p "** act_with_flags: add_accessor '#{name} @ #{pos}'"
+  def add_flag(name, origin, pos)
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
-    add accessor, pos
+    add_to_locations accessor, [origin, pos]
     mask = mask(accessor)
-    origin = self.origin
-    add_accessors(origin, accessor, mask)
+    add_accessors(accessor, origin, mask)
   end
 
   def add_mask_et_all(origin)
@@ -33,19 +30,13 @@ class ActWithFlags::Admin
         mask = self.class.act_with_flags.mask(*names)
         ( self.#{origin} & mask ).zero?
       end
-    )
-  end
-
-  def delete_mask_et_all
-    my_undef :flags_mask, :flags_any?, :flags_all?, :flags_none?
+    ), __FILE__, __LINE__ - 19
   end
 
   def reset
-    delete_mask_et_all
     names.each { |name|
       remove_accessor name
     }
     reset_model model
   end
-
 end

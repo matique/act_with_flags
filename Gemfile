@@ -8,4 +8,5 @@ group :test do
   gem "rubocop", require: false
   gem "simplecov", require: false
   gem "benchmark-ips"
+  gem "ricecream"
 end

@@ -1,44 +1,39 @@
-# rubocop:disable all
 # frozen_string_literal: true
 
 class ActWithFlags::Admin
-
   def to_s
     res = []
-    res << title('Variables')
-    res << variables(:origin, :boolean_hash)
+    res << title("Variables")
+    res << variables(:boolean_hash)
     res << variables(:delete_mask)
 
-    res << title('Flags sorted alfabetically')
-    @map.sort.each { |key, pos| res << "#{key}  #{position(key)}" }
-
-    res << title('Flags sorted by position')
-    @map.sort.sort_by(&:last).each { |key, pos|
-      res << "#{key}  #{position(key)}"
+    res << blk("Flags sorted alfabetically") { |key, loc|
+      "#{key} #{loc}"
+    }
+    res << blk("Flags and mask; sorted alfabetically") { |key, loc|
+      "#{key}  #{sprintf("0x%08X", mask(key))}"
+    }
+    res << blk("FLAG assignment; sorted alfabetically") { |key, loc|
+      "FLAG_#{key.upcase} = #{sprintf("0x%08X", mask(key))}"
     }
 
-    res << title('Flags and mask; sorted alfabetically')
-    @map.sort.each { |key, pos|
-      res << "#{key}  #{sprintf('0x%08X', mask(key))}"
-    }
-
-    res << title('FLAG assignment; sorted alfabetically')
-    @map.sort.each { |key, pos|
-      res << "FLAG_#{key.upcase} = #{sprintf('0x%08X', mask(key))}"
-    }
-
-    res << title('FLAG assignment; sorted by position')
-    @map.sort.sort_by(&:last).each { |key, pos|
-      res << "FLAG_#{key.upcase} = #{sprintf('0x%08X', mask(key))}"
-    }
-
+    res << title("@locations")
+    res << @locations
     res.flatten.join("\n")
   end
 
- private
+  private
+
   def title(msg)
-    sep = '#' * 10
-    ['', "#{sep} #{msg} #{sep}"]
+    sep = "#" * 10
+    ["", "#{sep} #{msg} #{sep}"]
+  end
+
+  def blk(legend, &block)
+    res = [title(legend)]
+    sorted = @locations.sort
+    sorted.each { |key, loc| res << block.call(key, loc) }
+    res
   end
 
   def variables(*names)
@@ -47,5 +42,4 @@ class ActWithFlags::Admin
       "#{name} #{value}"
     }
   end
-
 end
