@@ -4,7 +4,7 @@
 require "test_helper"
 require "benchmark"
 require "benchmark/ips"
- ENV["MORE"] = "true"
+# ENV["MORE"] = "true"
 
 describe "Internal timings flag" do
   let(:order) { Order.create }
@@ -23,8 +23,6 @@ describe "Internal timings flag" do
       x.report("assign \"false\": ") { order.blocked = "false" }
       x.report("x = order.blocked? ") { x = order.blocked? }
       x.report("x = order.blocked ") { x = order.blocked }
-      x.report("x = order.blocked?2 ") { order.blocked? }
-      x.report("x = order.blocked2 ") { order.blocked }
 
       x.compare!
     end
