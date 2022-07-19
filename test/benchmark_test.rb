@@ -4,9 +4,9 @@
 require "test_helper"
 require "benchmark"
 require "benchmark/ips"
-# ENV["MORE"] = "true"
+ ENV["MORE"] = "true"
 
-describe "Internal timings" do
+describe "Internal timings flag" do
   let(:order) { Order.create }
 
   def setup
@@ -23,6 +23,33 @@ describe "Internal timings" do
       x.report("assign \"false\": ") { order.blocked = "false" }
       x.report("x = order.blocked? ") { x = order.blocked? }
       x.report("x = order.blocked ") { x = order.blocked }
+      x.report("x = order.blocked?2 ") { order.blocked? }
+      x.report("x = order.blocked2 ") { order.blocked }
+
+      x.compare!
+    end
+  end
+end
+
+describe "Internal timings mask" do
+  let(:order) { Order.create }
+  let(:admin) { Order.act_with_flags }
+
+  def setup
+    reset_order
+    Order.add_to_flags a: 1, b: 7, c: 3
+    # Order.add_to_flags a: 1, b: 60, c: 3
+    # Order.add_to_flags a: 1, b: 1000, c: 3
+  end
+
+  it "times ips" do
+    return unless ENV["MORE"]
+
+    Benchmark.ips do |x|
+      x.report("mask(:a, :b):  ") { admin.mask(:a, :b) }
+      x.report("any?(:a, :b):  ") { order.flags_any?(:a, :b) }
+      x.report("all?(:a, :b):  ") { order.flags_all?(:a, :b) }
+      x.report("none?(:a, :b): ") { order.flags_none?(:a, :b) }
 
       x.compare!
     end

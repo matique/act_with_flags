@@ -8,9 +8,9 @@ describe "Testing origin" do
     reset_order
   end
 
-  it "location category" do
-    Order.add_to_flags :x, origin: :category
-    assert_equal :category, admin.location(:x).first
+  it "location origin1" do
+    Order.add_to_flags :x, origin: :origin1
+    assert_equal :origin1, admin.location(:x).first
   end
 
   it "origin default" do

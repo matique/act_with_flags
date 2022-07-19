@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "check add flag" do
+describe "Internal check add flag" do
   let(:order) { Order.create }
 
   def setup
