@@ -32,7 +32,17 @@ Order.add_to_flags d: 3, origin: :origin2
 Order.add_to_flags :d2, origin: :origin2
 ~~~
 
-The default "origin:" continues to be "flags" as originally designed.
+The default "origin:" continues to be "flags".
+
+## Links
+
+~~~~
+https://github.com/joelmoss/bitmask_attributes
+https://github.com/grosser/bitfields
+https://github.com/kenn/active_flag
+https://github.com/pjb3/has-bit-field
+https://github.com/gzigzigzeo/bitfield_attribute
+~~~~
 
 ## License MIT
 
