@@ -28,7 +28,6 @@ class ActWithFlags::Admin
       def #{accessor}=(value)
         raise "Uninitialized '#{model}.#{origin}'" if #{origin}.nil?
         is_a_string = #{origin}.is_a?(String)
-        # flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
         flags = self.#{origin}.to_i
         flags ||= 0
 
