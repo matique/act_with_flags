@@ -16,7 +16,7 @@ class ActWithFlags::Admin
       end
 
       def #{accessor}?
-        raise "Uninitialized '#{model}.#{origin}'"  if #{origin}.nil?
+        raise "Uninitialized '#{model}.#{origin}'" if #{origin}.nil?
         if #{origin}.is_a?(String)
           flags = self.#{origin}.to_i
           !( flags & #{mask} ).zero?
@@ -26,9 +26,10 @@ class ActWithFlags::Admin
       end
 
       def #{accessor}=(value)
-        raise "Uninitialized '#{model}.#{origin}'"  if #{origin}.nil?
+        raise "Uninitialized '#{model}.#{origin}'" if #{origin}.nil?
         is_a_string = #{origin}.is_a?(String)
-        flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
+        # flags = is_a_string ? self.#{origin}.to_i : self.#{origin}
+        flags = self.#{origin}.to_i
         flags ||= 0
 
         result = self.act_with_flags.to_boolean(value)
