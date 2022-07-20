@@ -6,7 +6,7 @@ class ActWithFlags::Admin
   def clear_at_save(*flags)
     flags.each { |name| add_to_clear_mask(name) }
     clears.each { |orig, mask|
-      before_save(orig.to_s, mask)
+      before_save(orig, mask)
     }
     @clears = {}
   end

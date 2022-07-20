@@ -10,7 +10,7 @@
 #  TGCB
 
 class << ActiveRecord::Base
-  attr_accessor :act_with_flags
+  attr_reader :act_with_flags
 
   def add_to_flags(*flags, origin: :flags, **hash)
     unless @act_with_flags

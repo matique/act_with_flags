@@ -36,17 +36,17 @@ The default "origin:" continues to be "flags".
 
 ## Links
 
-~~~~
-https://github.com/joelmoss/bitmask_attributes
-https://github.com/grosser/bitfields
-https://github.com/kenn/active_flag
-https://github.com/pjb3/has-bit-field
-https://github.com/gzigzigzeo/bitfield_attribute
-~~~~
+Interested in the topic? See:
+
+- [gem bitmask_attributes](https://github.com/joelmoss/bitmask_attributes)
+- [gem bitfields](https://github.com/grosser/bitfields)
+- [gem active_flag](https://github.com/kenn/active_flag)
+- [gem has-bit-field](https://github.com/pjb3/has-bit-field))
+- [gem bitfield_attribute](https://github.com/gzigzigzeo/bitfield_attribute)
 
 ## License MIT
 
-ActWithFlags is Copyright (c) 2019-2022 [Dittmar Krall](matiq.com UG) and
+Copyright (c) 2019-2022 [Dittmar Krall](matiq.com UG) and
 is released under the MIT license:
 
 * https://opensource.org/licenses/MIT
