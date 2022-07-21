@@ -21,6 +21,7 @@ describe "inheritance" do
     assert_equal true, a.y
   end
 
+############################################
   it "checks any?" do
     a.x = true
     assert a.flags_any?(:x, :y)
@@ -42,7 +43,7 @@ describe "inheritance" do
     refute a.flags_all?(:x, :y)
   end
 
-  it "checks none? #2" do
+  it "checks none?" do
     a.x = a.y = true
     refute a.flags_none?(:x, :y)
     a.x = false

@@ -10,9 +10,11 @@ describe "Internal One Flag" do
     Order.add_to_flags flag
   end
 
-  it "test Order.act_with_flags" do
+  it "test order.act_with_flags" do
     refute_nil admin
     assert_equal admin, order.class.act_with_flags
+    assert_equal admin, order.act_with_flags
+    assert_equal admin, Order.act_with_flags
   end
 
   it "checks definition of methods for flag" do

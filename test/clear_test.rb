@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "Clear Flags at Save" do
+describe "Clear flags at save" do
   let(:order) { Order.create }
 
   def setup
