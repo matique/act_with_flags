@@ -47,23 +47,4 @@ class ActWithFlags::Admin
   def remove_accessor(accessor)
     my_undef model, accessor, "#{accessor}?", "#{accessor}="
   end
-
-  private
-
-  def validate_accessor(*names)
-    names.each { |acc|
-      raise "redefining #{acc} rejected" if model.method_defined?(acc)
-    }
-  end
-
-  def my_undef(*names)
-    names.each { |name|
-      model.class_eval %(
-        begin
-          undef #{name}
-        rescue
-        end
-      ), __FILE__, __LINE__ - 5
-    }
-  end
 end

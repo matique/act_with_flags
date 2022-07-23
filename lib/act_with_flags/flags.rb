@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ActWithFlags::Admin
+#  Location = Struct.new(:model, :origin, :position)
+  Location = Struct.new(:origin, :position)
+
   attr_reader :locations
 
   def mask(*flags)
@@ -15,7 +18,7 @@ class ActWithFlags::Admin
   def mask2d(*flags)
     res = {}
     flags.each { |flag|
-      orig, pos = location(flag)
+      orig, pos = location(flag).to_a
       mask = res[orig] || 0
       res[orig] = mask | (1 << pos)
     }
@@ -35,34 +38,34 @@ class ActWithFlags::Admin
   private
 
   def position(name)
-    location(name).last
+    location(name).position
   end
 
   def names
     @locations.keys.sort
   end
 
-  def add_to_locations(name, location)
+  def add_to_locations(flag, location)
     location = check_position(location)
-    who = "<#{name}: #{location.last} @ #{location.first}>"
-    raise "name already used #{who}" if @locations.key?(name)
+    who = "<#{flag}: #{location.origin}@#{location.position}>"
+    raise "name already used #{who}" if @locations.key?(flag)
     bool = @locations.has_value?(location)
     raise "position already used #{who}" if bool
-    @locations[name] = location
+    @locations[flag] = location
   end
 
   def check_position(location)
-    orig, pos = location
+    orig, pos = location.to_a
     return location if pos
 
     max_position = -1
     @locations.each { |name, location|
-      orig2, pos2 = location
+      orig2, pos2 = location.to_a
       next unless orig == orig2
 
       max_position = pos2 if pos2 > max_position
     }
 
-    [location.first, max_position + 1]
+    Location.new(location.first, max_position + 1)
   end
 end

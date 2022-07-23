@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -36,7 +36,7 @@ The default "origin:" continues to be "flags".
 
 ## Links
 
-Interested in the topic? See:
+Further reading:
 
 - [gem bitmask_attributes](https://github.com/joelmoss/bitmask_attributes)
 - [gem bitfields](https://github.com/grosser/bitfields)

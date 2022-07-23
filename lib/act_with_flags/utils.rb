@@ -5,7 +5,8 @@ class ActWithFlags::Admin
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
-    add_to_locations accessor, [origin, pos]
+    loc = Location.new(origin, pos)
+    add_to_locations accessor, loc
     mask = mask(accessor)
     add_accessors(accessor, origin, mask)
   end
@@ -38,5 +39,24 @@ class ActWithFlags::Admin
       remove_accessor name
     }
     reset_model model
+  end
+
+  private
+
+  def validate_accessor(*names)
+    names.each { |acc|
+      raise "redefining #{acc} rejected" if model.method_defined?(acc)
+    }
+  end
+
+  def my_undef(*names)
+    names.each { |name|
+      model.class_eval %(
+        begin
+          undef #{name}
+        rescue
+        end
+      ), __FILE__, __LINE__ - 5
+    }
   end
 end
