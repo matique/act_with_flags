@@ -35,6 +35,7 @@ class ActWithFlags::Admin
   end
 
   def reset
+    names = @locations.keys.sort
     names.each { |name|
       remove_accessor name
     }

@@ -41,10 +41,6 @@ class ActWithFlags::Admin
     location(name).position
   end
 
-  def names
-    @locations.keys.sort
-  end
-
   def add_to_locations(flag, location)
     location = check_position(location)
     who = "<#{flag}: #{location.origin}@#{location.position}>"
