@@ -14,7 +14,7 @@ class ActWithFlags::Admin
   private
 
   def add_to_clear_mask(name)
-    orig, _pos = location(name).to_a
+    _model, orig, _pos = location(name).values
     mask = @clears[orig] || 0
     mask |= 1 << position(name)
     @clears[orig] = mask

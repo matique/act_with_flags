@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ActWithFlags::Admin
-#  Location = Struct.new(:model, :origin, :position)
-  Location = Struct.new(:origin, :position)
+  Location = Struct.new(:model, :origin, :position)
 
   attr_reader :locations
 
@@ -18,7 +17,7 @@ class ActWithFlags::Admin
   def mask2d(*flags)
     res = {}
     flags.each { |flag|
-      orig, pos = location(flag).to_a
+      _model, orig, pos = location(flag).values
       mask = res[orig] || 0
       res[orig] = mask | (1 << pos)
     }
@@ -51,17 +50,17 @@ class ActWithFlags::Admin
   end
 
   def check_position(location)
-    orig, pos = location.to_a
+    model, orig, pos = location.values
     return location if pos
 
     max_position = -1
     @locations.each { |name, location|
-      orig2, pos2 = location.to_a
-      next unless orig == orig2
+      model2, orig2, pos2 = location.values
+      next unless (model == model2 && orig == orig2)
 
       max_position = pos2 if pos2 > max_position
     }
 
-    Location.new(location.first, max_position + 1)
+    Location.new(model, orig, max_position + 1)
   end
 end

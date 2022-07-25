@@ -10,11 +10,11 @@ describe "Testing origin" do
 
   it "location origin1" do
     Order.add_to_flags :x, origin: :origin1
-    assert_equal :origin1, admin.location(:x).first
+    assert_equal :origin1, admin.location(:x).origin
   end
 
   it "origin default" do
     Order.add_to_flags :x
-    assert_equal :flags, admin.location(:x).first
+    assert_equal :flags, admin.location(:x).origin
   end
 end
