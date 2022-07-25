@@ -17,9 +17,10 @@ class ActWithFlags::Admin
   def mask2d(*flags)
     res = {}
     flags.each { |flag|
-      _model, orig, pos = location(flag).values
-      mask = res[orig] || 0
-      res[orig] = mask | (1 << pos)
+      model, orig, pos = location(flag).values
+      idx = "#{model}##{orig}"
+      mask = res[idx] || 0
+      res[idx] = mask | (1 << pos)
     }
     res
   end

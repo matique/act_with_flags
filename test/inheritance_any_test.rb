@@ -1,7 +1,7 @@
 require "test_helper"
 
 class A < Order
-  add_to_flags y: 2
+  add_to_flags x: 1, y: 2
 end
 
 describe "inheritance" do
@@ -9,7 +9,7 @@ describe "inheritance" do
 
   def setup
     reset_order
-    Order.add_to_flags x: 1
+    Order.add_to_flags z: 3
   end
 
   it "consistency" do
@@ -21,34 +21,12 @@ describe "inheritance" do
     assert_equal true, a.y
   end
 
-############################################
   it "checks any?" do
     a.x = true
     assert a.flags_any?(:x, :y)
-    a.x = false
-    refute a.flags_any?(:x, :y)
-  end
 
-  it "checks any? #2" do
-    a.y = true
-    assert a.flags_any?(:x, :y)
-    a.y = false
-    refute a.flags_any?(:x, :y)
-  end
-
-  it "checks all?" do
-    a.x = a.y = true
-    assert a.flags_all?(:x, :y)
-    a.x = false
-    refute a.flags_all?(:x, :y)
-  end
-
-  it "checks none?" do
-    a.x = a.y = true
-    refute a.flags_none?(:x, :y)
-    a.x = false
-    refute a.flags_none?(:x, :y)
-    a.y = false
-    assert a.flags_none?(:x, :y)
+    assert_raises() {
+      assert a.flags_any?(:x, :y, :z)
+    }
   end
 end
