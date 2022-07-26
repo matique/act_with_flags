@@ -1,11 +1,12 @@
 require "test_helper"
 
-class B < Order
+# There is an interference with Class B in another test: call it BB!
+class BB < Order
   add_to_flags x: 1
 end
 
 describe "mask2d" do
-  let(:admin) { B.act_with_flags }
+  let(:admin) { BB.act_with_flags }
 
   def setup
     reset_order
@@ -19,7 +20,6 @@ describe "mask2d" do
 
   it "is a splitted mask" do
     mask = admin.mask2d(:x, :y)
-ic mask
     assert_equal 2, mask.length
   end
 end
