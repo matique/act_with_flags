@@ -25,7 +25,7 @@ describe "inheritance" do
     a.x = true
     assert a.flags_any?(:x, :y)
 
-    assert_raises() {
+    assert_raises(RuntimeError) {
       assert a.flags_any?(:x, :y, :z)
     }
   end

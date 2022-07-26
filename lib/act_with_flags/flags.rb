@@ -57,7 +57,7 @@ class ActWithFlags::Admin
     max_position = -1
     @locations.each { |name, location|
       model2, orig2, pos2 = location.values
-      next unless (model == model2 && orig == orig2)
+      next unless model == model2 && orig == orig2
 
       max_position = pos2 if pos2 > max_position
     }

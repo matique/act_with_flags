@@ -5,7 +5,6 @@ class ActWithFlags::Admin
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
-#    loc = Location.new(model.to_s.to_sym, origin, pos)
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
     mask = mask(accessor)
