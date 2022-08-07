@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   s.metadata["source_code_uri"] = "https://github.com/matique/act_with_flags"
 
   s.files = `git ls-files -z`.split("\x0")
-  s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
   s.add_development_dependency "bundler"
