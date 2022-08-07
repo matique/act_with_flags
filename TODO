@@ -1,54 +1,9 @@
-dk@matique-5: /opt/matique/staging/key/app/models/access/ med ticket.rb
+# max_bits
 
-if false # NOT YET
-  ii = -1
   add_to_flags(
-    veto_commented: ( ii += 1 ),
-    origin: :flags_2,
-    origin_max_bits: 63
+    ...
+    max_bits: 63
   )
-  #
-  # Mask for selecting veto_commented
-  #   veto_commented_mask = act_with_flags.mask(
-  #     :veto_commented # detects: origin: :flags_2
-  #   ) # should be 0x0000000000000001
-  #   veto_rejected_mask = act_with_flags.mask(
-  #     :veto_rejected # default origin (= :flags)
-  #   ) # should be 0x4000000000000000
-  #   mixed_mask = act_with_flags.mask(
-  #     :veto_rejected, # default origin (= :flags)
-  #     :veto_commented # origin is :flags_2
-  #   ) # => raises exception ("Mixed origins" o. s. ä.)
-  # Test:
-  #   - self.veto_commented = true # => flags_2 should ==  1
-  #   - self.veto_commented = false # => flags_2 should ==  0
-  #   - self.veto_rejected = true # => flags & 2**62 should ==  2**62
-  #   - self.veto_rejected = false # => flags & 2**62 should ==  0
-  #
-else
-  add_to_bag( { veto_commented: :boolean } )
-end
-
-Beispiel für Benutzung von masks in Work::Secret::SealBreaking
-
-ACT_WITH_FLAGS = Work::Document.act_with_flags
-
-Work::Secret.where(
-  "( flags & #{ ACT_WITH_FLAGS.mask :unbreaking } ) > 0"
-).to_a.each{ |unbreakingn_secret| ... }
-
-"SELECT document.* "
-  "FROM work_documents " +
-  "AS document " +
-  "WHERE "
-    document.type = 'Work::Secret' " +
-    "AND " +
-    "document.flags & #{ ACT_WITH_FLAGS.mask :unbreaking } > 0" +
-  ";"
-
-SELECT name FROM tabElle WHERE feld > 123;
-
-SELECT * FROM tabelle WHERE (flags & 16) = 16;
 
 Sinn und Zweck von :max_bits. Beispiel ein bigint Feld von PostgreSQL hat
 64 Bits. Das Bit 2**63 ist allerdings nur bei negativen Zahlen gesetzt.
@@ -58,3 +13,9 @@ dass kein höheres Bit verwendet wird. Falls doch würde bereits bei
 add_to_flags eine Exception bereits beim Start der Rails-Web-App  geworfen und
 nicht erst bei der Verwendung des Bits.
 
+## Solution
+
+Rails supports already "validate" which is, IMHO,
+the right way to limit values to be stored in the database.
+Furthermore, invalid values, stored by equivocation,
+are detected by "validate".

@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name = "act_with_flags"
   s.version = ActWithFlags::VERSION
   s.summary = %(act_with_flags gem)
-  s.description = %(Handles flags in a Rails model instance)
+  s.description = %(Handles flags/booleans in a Rails model instance)
   s.authors = ["Dittmar Krall"]
-  s.email = ["dittmar.krall@matique.de"]
-  s.homepage = "http://matique.de"
+  s.email = ["dittmar.krall@matiq.com"]
+  s.homepage = "http://matiq.com"
 
   s.license = "MIT"
   s.platform = Gem::Platform::RUBY

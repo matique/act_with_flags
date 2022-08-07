@@ -20,7 +20,8 @@ Or install it yourself as:
 ## Version 3.x
 
 As required by key.matiq an enhanced "origin:" has been implemented.
-Act_with_flags now supports many "origin:"s.
+Act_with_flags now supports many "origin:"s
+(not just renaming the default "flags").
 
 An example:
 
@@ -41,7 +42,7 @@ Further reading:
 - [gem bitmask_attributes](https://github.com/joelmoss/bitmask_attributes)
 - [gem bitfields](https://github.com/grosser/bitfields)
 - [gem active_flag](https://github.com/kenn/active_flag)
-- [gem has-bit-field](https://github.com/pjb3/has-bit-field))
+- [gem has-bit-field](https://github.com/pjb3/has-bit-field)
 - [gem bitfield_attribute](https://github.com/gzigzigzeo/bitfield_attribute)
 
 ## License MIT
