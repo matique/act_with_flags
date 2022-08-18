@@ -47,7 +47,7 @@ Further reading:
 
 ## License MIT
 
-Copyright (c) 2019-2022 [Dittmar Krall](matiq.com UG) and
-is released under the MIT license:
+Copyright (c) 2019-2022 [Dittmar Krall](matiq UG (haftungsbeschränkt))
+and is released under the MIT license:
 
 * https://opensource.org/licenses/MIT
