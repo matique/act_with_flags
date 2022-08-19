@@ -13,14 +13,14 @@ module ActWithFlags
   module Base
     attr_reader :act_with_flags
 
-    def add_to_flags(*flags, origin: :flags, **hash)
+    def add_to_flags(*flags, origin: :flags, range: nil, **hash)
       unless @act_with_flags
         @act_with_flags ||= ActWithFlags::Admin.new self
         @act_with_flags.add_mask_et_all origin
       end
 
-      flags.each { |name| @act_with_flags.add_flag(name, origin, nil) }
-      hash.each { |name, pos| @act_with_flags.add_flag(name, origin, pos) }
+      flags.each { |name| @act_with_flags.add_flag(name, nil, origin, range) }
+      hash.each { |name, pos| @act_with_flags.add_flag(name, pos, origin, range) }
 
       @act_with_flags
     end

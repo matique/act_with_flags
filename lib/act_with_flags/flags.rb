@@ -42,7 +42,6 @@ class ActWithFlags::Admin
   end
 
   def add_to_locations(flag, location)
-    location = check_position(location)
     who = "<#{flag}: #{location.origin}@#{location.position}>"
     raise "name already used #{who}" if @locations.key?(flag)
     bool = @locations.has_value?(location)
@@ -50,18 +49,17 @@ class ActWithFlags::Admin
     @locations[flag] = location
   end
 
-  def check_position(location)
-    model, orig, pos = location.values
-    return location if pos
+  def check_pos(model, origin, pos)
+    return pos if pos
 
     max_position = -1
     @locations.each { |name, location|
       model2, orig2, pos2 = location.values
-      next unless model == model2 && orig == orig2
+      next unless model == model2 && origin == orig2
 
       max_position = pos2 if pos2 > max_position
     }
 
-    Location.new(model, orig, max_position + 1)
+    max_position + 1
   end
 end
