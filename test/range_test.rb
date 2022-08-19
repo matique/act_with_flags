@@ -38,11 +38,12 @@ describe "range" do
     ii = 0
     (0..3).each { |íí|
       sym = "x#{ii}".to_sym
-      jj = f(ii, ii) # filler
-      Order.add_to_flags range: ii..f(íí, íí), sym => (ii += 1)
+      j = f(ii, ii) # filler
+      rand j
+      Order.add_to_flags :range => ii..f(íí, íí), sym => (ii += 1)
       j = Order.new
-      refute j.send("#{sym}?")
-      j.x0 = true
+      refute j.send("#{sym}?") # checks that accessor is active
+      j.x0 = true # checks that first accessor is still there
       assert j.x0?
     }
   end

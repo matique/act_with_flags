@@ -10,7 +10,6 @@ class ActWithFlags::Admin
     add_to_locations accessor, loc
 
     unless range.nil?
-#      unless range.cover?(loc.position)
       unless range.cover?(pos)
         raise RangeError, "Position <#{loc.position}> out of range <#{range}>"
       end
