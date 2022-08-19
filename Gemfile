@@ -5,7 +5,7 @@ gem "rails"
 
 group :test do
   gem "observr"
-  gem "rubocop", require: false
+  gem "standardrb", require: false
   gem "simplecov", require: false
   gem "benchmark-ips"
   gem "ricecream"
