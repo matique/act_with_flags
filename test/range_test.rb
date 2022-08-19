@@ -20,7 +20,7 @@ describe "range" do
     assert_raises(RangeError) { Order.add_to_flags range: 2..3, b: 4 }
   end
 
-  it "runs with borders" do
+  it "runs at borders" do
     Order.add_to_flags range: 2..3, a: 2
     Order.add_to_flags range: 2..3, b: 3
   end
