@@ -36,16 +36,45 @@ describe "range" do
 
   it "runs ii plus" do
     ii = 0
-    (0..3).each { |íí|
+    (0..2).each { |íí|
       sym = "x#{ii}".to_sym
-      j = f(ii, ii) # filler
-      rand j
+      j = f(ii, ii + 1) # filler
       Order.add_to_flags :range => ii..f(íí, íí), sym => (ii += 1)
-      j = Order.new
-      refute j.send("#{sym}?") # checks that accessor is active
-      j.x0 = true # checks that first accessor is still there
-      assert j.x0?
+      orden = Order.new
+      refute orden.send("#{sym}?") # checks that accessor is active
+      orden.x0 = true # checks that first accessor is still there
+      assert orden.x0?
     }
+  end
+
+  it "tests range 0..0 no position" do
+    Order.add_to_flags :a, range: 0..0
+    assert_raises(RangeError) { Order.add_to_flags :b, range: 0..0 }
+  end
+
+  it "tests range ..0 no position" do
+    Order.add_to_flags :a, range: ..0
+    assert_raises(RangeError) { Order.add_to_flags :b, range: ..0 }
+  end
+
+  # includes range: ( .. 3 ) equivalent to range: ..3
+  n = 100
+  (0..n).each do |i|
+    rng = ..i
+
+    (0..i).each do |j|
+      it "tests range ..#{i} with position #{j}" do
+        Order.add_to_flags a: j, range: rng
+      end
+    end
+
+    it "fails range ..#{i} with position overflow" do
+      assert_raises(RangeError) { Order.add_to_flags b: (i + 1), range: rng }
+    end
+  end
+
+  it "tests range ...0 no position" do
+    assert_raises(RangeError) { Order.add_to_flags :a, range: ...0 }
   end
 
   private

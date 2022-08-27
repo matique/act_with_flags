@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/act_with_flags.png)](http://badge.fury.io/rb/act_with_flags)
 
-Required by key.matiq.
+A Rails gem required by key.matiq.
 
 Handles booleans in "flags".
 Defines setters and getters to access the booleans.
@@ -23,6 +23,26 @@ $ gem install act_with_flags
 ```
 
 
+## Version 3.1.x
+
+Added option "range" limiting the position of booleans.
+
+An example:
+```ruby
+ii = 3
+Order.add_to_flags range: (2..4), a: (ii += 1) # accepted
+Order.add_to_flags range: (2..4), b: (ii += 1) # raises exception
+```
+
+Option "range" enables an early static check.
+
+Option "range" does not replace the dynamic "validate" in models,
+which is strongly recommended for complex applications.
+Due to Ruby "act_with_flags" can handle a huge quantity
+of booleans in an integer (or a string),
+but your database may fail above a certain amount of bits.
+
+
 ## Version 3.x
 
 As required by key.matiq an enhanced "origin:" has been implemented.
@@ -30,7 +50,6 @@ Act_with_flags now supports many "origin:"s
 (not just renaming the default "flags").
 
 An example:
-
 ```ruby
 Order.add_to_flags :a # origin is :flags
 Order.add_to_flags :b, b2: 63 # origin is :flags
