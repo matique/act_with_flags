@@ -39,6 +39,7 @@ describe "range" do
     (0..2).each { |íí|
       sym = "x#{ii}".to_sym
       j = f(ii, ii + 1) # filler
+      rand j
       Order.add_to_flags :range => ii..f(íí, íí), sym => (ii += 1)
       orden = Order.new
       refute orden.send("#{sym}?") # checks that accessor is active
