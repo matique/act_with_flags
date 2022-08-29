@@ -42,8 +42,10 @@ Due to Ruby "act_with_flags" can handle a huge quantity
 of booleans in an integer (or a string),
 but your database may fail above a certain amount of bits.
 
+The option ":max_bits" is deprecated.
 
-## Version 3.x
+
+## Version 3.0.x
 
 As required by key.matiq an enhanced "origin:" has been implemented.
 Act_with_flags now supports many "origin:"s
@@ -59,8 +61,6 @@ Order.add_to_flags :d2, origin: :origin2
 ```
 
 The default "origin:" continues to be "flags".
-
-The option ":max_bits" is deprecated.
 
 
 ## Testing
