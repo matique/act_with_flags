@@ -23,7 +23,32 @@ $ gem install act_with_flags
 ```
 
 
-## Version 3.1.x
+## Version 3.1.1
+
+Option "range" can be specified just once for all
+"add_to_flags" for a specific "origin".
+
+For example:
+~~~ruby
+Order.add_to_flags range: ..0
+...
+Order.add_to_flags :a
+~~~
+
+Same as:
+~~~ruby
+Order.add_to_flags :a
+...
+Order.add_to_flags range: ..0
+~~~
+
+or:
+~~~ruby
+Order.add_to_flags :a, range: ..0
+~~~
+
+
+## Version 3.1.0
 
 Added option "range" limiting the position of booleans.
 

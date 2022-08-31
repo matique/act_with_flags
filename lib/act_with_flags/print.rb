@@ -5,7 +5,6 @@ class ActWithFlags::Admin
     res = []
     res << title("Variables")
     res << variables(:boolean_hash)
-    res << variables(:delete_mask)
 
     res << blk("Flags sorted alfabetically") { |key, loc|
       "#{key} #{loc}"
@@ -17,6 +16,8 @@ class ActWithFlags::Admin
       "FLAG_#{key.upcase} = #{sprintf("0x%08X", mask(key))}"
     }
 
+    res << title("@ranges")
+    res << @ranges
     res << title("@locations")
     res << @locations
     res.flatten.join("\n")

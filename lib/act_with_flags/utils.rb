@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ActWithFlags::Admin
-  def add_flag(name, pos, origin, range)
+  def add_flag(name, pos, origin)
+    range = ranges[origin]
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
@@ -9,11 +10,7 @@ class ActWithFlags::Admin
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
 
-    unless range.nil?
-      unless range.cover?(pos)
-        raise RangeError, "Position <#{loc.position}> out of range <#{range}>"
-      end
-    end
+    validate_position(range, pos)
 
     mask = mask(accessor)
     add_accessors(accessor, origin, mask)
@@ -48,6 +45,14 @@ class ActWithFlags::Admin
       remove_accessor name
     }
     reset_model model
+  end
+
+  def validate_position(range, position)
+    return if range.nil?
+    return if range.cover?(position)
+
+    msg = "Position #{position} out of range #{range}"
+    raise RangeError, msg
   end
 
   private
