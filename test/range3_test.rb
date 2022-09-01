@@ -18,11 +18,8 @@ describe "range #3" do
     assert 0x10000000000000000000000000, msk
   end
 
-  it "rejects negative position" do
+  it "rejects ivalid position" do
     assert_raises(ArgumentError) { Order.add_to_flags a: -1 }
-  end
-
-  it "rejects a symbol as position" do
     assert_raises(ArgumentError) { Order.add_to_flags a: :a_symbol }
   end
 

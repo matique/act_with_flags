@@ -66,7 +66,7 @@ Order.add_to_flags range: "a".."z" # invalid range
 
 ## Version 3.1.0
 
-Added option "range" limiting the position of booleans.
+Added option "range" limiting the position of flags.
 
 An example:
 ```ruby
