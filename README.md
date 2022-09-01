@@ -47,6 +47,22 @@ or:
 Order.add_to_flags :a, range: ..0
 ~~~
 
+Examples for "range":
+~~~ruby
+Order.add_to_flags range: 0..17   # legal flag position from 0 to 17
+Order.add_to_flags range: ..17    # legal flag position from 0 to 17
+Order.add_to_flags range: nil..17 # legal flag position from 0 to 17
+Order.add_to_flags range: 3..     # legal flag position from 3 to big_number
+Order.add_to_flags range: 3..nil  # legal flag position from 3 to big_number
+~~~
+
+Invalid ranges:
+~~~ruby
+Order.add_to_flags range: -1..17   # range starting with a negative position
+Order.add_to_flags range: :a..:z   # invalid range
+Order.add_to_flags range: "a".."z" # invalid range
+~~~
+
 
 ## Version 3.1.0
 

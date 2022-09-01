@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "range" do
+describe "range #2" do
   def setup
     reset_order
   end

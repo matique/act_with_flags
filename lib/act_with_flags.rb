@@ -14,6 +14,7 @@ module ActWithFlags
     attr_reader :act_with_flags
 
     def add_to_flags(*flags, origin: :flags, range: nil, **hash)
+      origin = origin.to_sym
       init(origin, range)
 
       flags.each { |name| @act_with_flags.add_flag(name, nil, origin) }
@@ -38,6 +39,11 @@ module ActWithFlags
         @act_with_flags.add_mask_et_all origin
       end
 
+      unless range.nil?
+        validate_range_value range.begin
+        validate_range_value range.end
+      end
+
       rng = @act_with_flags.ranges[origin]
       unless range.nil? || (range == rng)
         msg = "incompatible ranges #{range} - #{rng}"
@@ -55,6 +61,13 @@ module ActWithFlags
 
         @act_with_flags.validate_position(range, location.position)
       end
+    end
+
+    def validate_range_value(range_value)
+      return if range_value.nil?
+      return if range_value.is_a?(Integer) && range_value >= 0
+
+      raise RangeError, "Invalid range value #{range_value}"
     end
   end
 end
