@@ -1,8 +1,7 @@
 # see also https://github.com/whitequark/parser/blob/master/.github/workflows/test.yml
 name: Rake
 
-#on: [push, pull_request]
-on: [push]
+on: push
 
 jobs:
   test:
