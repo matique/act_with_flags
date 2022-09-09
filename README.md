@@ -125,6 +125,7 @@ Further reading:
 - [gem active_flag](https://github.com/kenn/active_flag)
 - [gem has-bit-field](https://github.com/pjb3/has-bit-field)
 - [gem bitfield_attribute](https://github.com/gzigzigzeo/bitfield_attribute)
+- [gem bitwise](https://github.com/kenn/bitwise)
 
 
 ## License MIT
