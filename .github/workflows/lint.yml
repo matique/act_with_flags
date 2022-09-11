@@ -12,5 +12,3 @@ jobs:
           bundler-cache: true
       - name: Run Standard
         run: bundle exec standardrb
-      - name: Run erb-lint
-        run: bundle exec erblint --lint-all
