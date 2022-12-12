@@ -6,8 +6,8 @@ require "benchmark"
 require "benchmark/ips"
 # ENV["MORE"] = "true"
 
-describe "Internal timings flag" do
-  let(:order) { Order.create }
+describe "Internal timings" do
+  let(:order) { Order.new }
 
   def setup
     reset_order
@@ -30,7 +30,7 @@ describe "Internal timings flag" do
 end
 
 describe "Internal timings mask" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
   let(:admin) { Order.act_with_flags }
 
   def setup
@@ -62,7 +62,7 @@ class BenchFoo < Minitest::Benchmark
     n = 100_000
     n = 10_000
     Order.add_to_flags :blocked2
-    order = Order.create
+    order = Order.new
     assert_performance_constant do |input|
       n.times do
         order.blocked2 = true

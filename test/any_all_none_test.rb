@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe "any? all? and none?" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order

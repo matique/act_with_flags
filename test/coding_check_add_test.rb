@@ -1,14 +1,14 @@
 require "test_helper"
 
-describe "Internal check add flag" do
-  let(:order) { Order.create }
+describe "Internal check add_to_" do
+  let(:order) { Order.new }
 
   def setup
     reset_order
     Order.add_to_flags a: 1, b: 7
   end
 
-  it "skip reserved position" do
+  it "skips reserved position" do
     Order.add_to_flags :xx
     order.xx = true
     assert_equal 0x100, order.flags

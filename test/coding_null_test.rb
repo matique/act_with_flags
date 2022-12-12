@@ -8,7 +8,7 @@ describe "Internal Null" do
     Order.add_to_flags
   end
 
-  it "respond to act_with_flags" do
+  it "respond to act_with_" do
     assert Order.respond_to?(:act_with_flags)
     refute_nil Order.act_with_flags
   end

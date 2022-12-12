@@ -1,11 +1,11 @@
 require "test_helper"
 
 describe "Legacy Flag" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order
-    Order.add_to_flags a: 1, b: 7, c: 3
+    Order.add_to_flags a: 1, c: 3, b: 7
   end
 
   it "set true" do

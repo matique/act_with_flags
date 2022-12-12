@@ -2,14 +2,20 @@ require "test_helper"
 
 describe "One Flag" do
   let(:flag) { :blocked }
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order
     Order.add_to_flags flag
   end
 
-  it "set flag (:blocked)" do
+  it "checks defaults" do
+    refute_equal true, order.blocked
+    assert_equal false, order.blocked
+    assert_equal false, order.blocked?
+  end
+
+  it "set :blocked" do
     order.blocked = true
     assert_equal true, order.blocked
     assert_equal true, order.blocked?
