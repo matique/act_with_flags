@@ -7,21 +7,14 @@ A Rails gem required by key.matiq.
 Handles booleans in "flags".
 Defines setters and getters to access the booleans.
 
-
 ## Installation
 
 As usual:
 ```ruby
 # Gemfile
-...
-gem 'act_with_flags'
+gem "act_with_flags"
 ```
-
-or manually:
-```shell
-$ gem install act_with_flags
-```
-
+and run "bundle install".
 
 ## Version 3.1.1
 
@@ -128,9 +121,9 @@ Further reading:
 - [gem bitwise](https://github.com/kenn/bitwise)
 
 
-## License MIT
+## Miscellaneous
 
-Copyright (c) 2019-2022 [Dittmar Krall](matiq UG (haftungsbeschränkt))
-and is released under the MIT license:
+Copyright (c) 2019-2022 Dittmar Krall (www.matiq.com),
+released under the MIT license:
 
 * https://opensource.org/licenses/MIT
