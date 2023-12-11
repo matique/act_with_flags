@@ -27,9 +27,9 @@ module ActWithFlags
       flags.each { |name| @act_with_flags.remove_accessor(name) }
     end
 
-    # def clear_flags_at_save(*flags)
-    def clear_flags_at_save(*)
-      @act_with_flags.clear_at_save(*)
+    # def clear_flags_at_save(*)
+    def clear_flags_at_save(*flags)
+      @act_with_flags.clear_at_save(*flags)
     end
 
     private
