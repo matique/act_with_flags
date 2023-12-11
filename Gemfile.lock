@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    act_with_flags (3.1.4)
+    act_with_flags (3.1.5)
 
 GEM
   remote: https://rubygems.org/

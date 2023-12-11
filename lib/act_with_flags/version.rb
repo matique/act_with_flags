@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 module ActWithFlags
-  XVERSION = "3.1.4" # 2023-12-11
-  VERSION = "3.1.4" # 2023-12-11
+  VERSION = "3.1.5" # 2023-12-11
   # VERSION = "3.1.3" # 2023-04-18
   # VERSION = "3.1.2" # 2022-12-12
   # VERSION = "3.1.1" # 2022-09-01
