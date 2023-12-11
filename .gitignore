@@ -6,3 +6,9 @@ coverage/
 *.log
 *.lock
 *.sqlite3
+**/*.gem
+**/*.log
+**/*.lock
+**/test.sqlite3*
+
+test/internal/tmp/

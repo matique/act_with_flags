@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = %(Handles flags/booleans in a Rails model instance)
   s.authors = ["Dittmar Krall"]
   s.email = ["dittmar.krall@matiq.com"]
-  s.homepage = "http://matiq.com"
+  s.homepage = "https://github.com/matique/act_with_flags"
 
   s.license = "MIT"
   s.platform = Gem::Platform::RUBY
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.files = `git ls-files -z`.split("\x0")
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "appraisal"
-  s.add_development_dependency "combustion"
-  s.add_development_dependency "minitest"
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "appraisal", ">= 0"
+  s.add_development_dependency "combustion", ">= 0"
+  s.add_development_dependency "minitest", ">= 0"
+  s.add_development_dependency "sqlite3", ">= 0"
 end

@@ -1,6 +1,7 @@
 # ActWithFlags
 
 [![Gem Version](https://badge.fury.io/rb/act_with_flags.png)](http://badge.fury.io/rb/act_with_flags)
+[![GEM Downloads](https://img.shields.io/gem/dt/act_with_flags?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_flags)
 
 A Rails gem required by key.matiq.
 
@@ -124,6 +125,4 @@ Further reading:
 ## Miscellaneous
 
 Copyright (c) 2019-2023 Dittmar Krall (www.matiq.com),
-released under the MIT license:
-
-* https://opensource.org/licenses/MIT
+released under the [MIT license](https://opensource.org/licenses/MIT).
