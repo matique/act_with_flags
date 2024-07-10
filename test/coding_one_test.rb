@@ -20,7 +20,7 @@ describe "Internal One Flag" do
   it "checks definition of methods" do
     msg = "method '#{flag}' not defined"
     assert order.respond_to?(flag.to_s), msg
-    assert order.respond_to?("#{flag}?"), msg
-    assert order.respond_to?("#{flag}="), msg
+    assert order.respond_to?(:"#{flag}?"), msg
+    assert order.respond_to?(:"#{flag}="), msg
   end
 end

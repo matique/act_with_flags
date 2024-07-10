@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "appraisal", ">= 0"
   s.add_development_dependency "combustion", ">= 0"
   s.add_development_dependency "minitest", ">= 0"
-  s.add_development_dependency "sqlite3", ">= 0"
+  # s.add_development_dependency "sqlite3", ">= 0"
 end
