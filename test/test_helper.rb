@@ -12,7 +12,6 @@ Combustion.initialize! :active_record
 require "rails/test_help"
 require "minitest/autorun"
 require "minitest/benchmark"
-# require 'capybara/rails'
 
 def reset_order
   Order.act_with_flags&.reset
