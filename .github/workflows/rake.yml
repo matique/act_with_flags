@@ -8,16 +8,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: [3.2]
+        ruby_version: ["3.2", "3.3"]
         gemfile:
           - Gemfile
+          - gemfiles/Gemfile.rails-7.2
           - gemfiles/Gemfile.rails-7.1
-          - gemfiles/Gemfile.rails-7.0
-          - gemfiles/Gemfile.rails-6.1
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
