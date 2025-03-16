@@ -57,9 +57,6 @@ end
 class BenchFoo < Minitest::Benchmark
   def bench_order_blocked
     return unless ENV["MORE"]
-
-    n = 1_000_000
-    n = 100_000
     n = 10_000
     Order.add_to_flags :blocked2
     order = Order.new
