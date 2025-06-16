@@ -1,5 +1,11 @@
 # ActWithFlags
 
+[![Gem Version](https://img.shields.io/gem/v/act_with_flags?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/act_with_flags)
+[![Downloads](https://img.shields.io/gem/dt/act_with_flags?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/act_with_flags)
+[![GitHub Build](https://img.shields.io/github/actions/workflow/status/matique/act_with_flags/rake.yml?logo=github)](https://github.com/matique/act_with_flags/actions/workflows/rake.yml)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-168AFE.svg)](https://github.com/standardrb/standard)
+[![MIT License](https://img.shields.io/badge/license-MIT-168AFE.svg)](http://choosealicense.com/licenses/mit/)
+
 [![Gem Version](https://badge.fury.io/rb/act_with_flags.svg)](http://badge.fury.io/rb/act_with_flags)
 [![GEM Downloads](https://img.shields.io/gem/dt/act_with_flags?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_flags)
 [![rake](https://github.com/matique/act_with_flags/actions/workflows/rake.yml/badge.svg)](https://github.com/matique/act_with_flags/actions/workflows/rake.yml)
