@@ -2,13 +2,11 @@
 coverage/
 .watchr
 
-*.gem
-*.log
-*.lock
-*.sqlite3
 **/*.gem
 **/*.log
 **/*.lock
+
+*.sqlite3
 **/test.sqlite3*
 
 test/internal/tmp/
