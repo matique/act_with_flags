@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    act_with_flags (3.1.10)
+    act_with_flags (3.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -80,10 +80,6 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    appraisal (2.5.0)
-      bundler
-      rake
-      thor (>= 0.14.0)
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.5.0)
@@ -308,7 +304,6 @@ PLATFORMS
 
 DEPENDENCIES
   act_with_flags!
-  appraisal
   benchmark
   benchmark-ips
   combustion
@@ -321,7 +316,7 @@ DEPENDENCIES
   standard
 
 CHECKSUMS
-  act_with_flags (3.1.10)
+  act_with_flags (3.2.0)
   action_text-trix (2.1.16) sha256=f645a2c21821b8449fd1d6770708f4031c91a2eedf9ef476e9be93c64e703a8a
   actioncable (8.1.1) sha256=7262307e9693f09b299e281590110ce4b6ba7e4e4cee6da4b9d987eaf56f9139
   actionmailbox (8.1.1) sha256=aa99703a9b2fa32c5a4a93bb21fef79e2935d8db4d1fd5ef0772847be5d43205
@@ -334,7 +329,6 @@ CHECKSUMS
   activerecord (8.1.1) sha256=e32c3a03e364fd803498eb4150c21bedc995aa83bc27122a94d480ab1dcb3d17
   activestorage (8.1.1) sha256=bc01d8b4c55e309a0a2e218bfe502c382c9f232e28b1f4b0adc9d8719d2bf28d
   activesupport (8.1.1) sha256=5e92534e8d0c8b8b5e6b16789c69dbea65c1d7b752269f71a39422e9546cea67
-  appraisal (2.5.0) sha256=36989221be127913b0dba8d114da2001e6b2dceea7bd4951200eaba764eed3ce
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c

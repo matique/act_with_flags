@@ -1,5 +1,6 @@
 module ActWithFlags
-  VERSION = "3.1.10" # 2025-06-19
+  VERSION = "3.2.0" # 2026-01-02
+  # VERSION = "3.1.10" # 2025-06-19
   # VERSION = "3.1.9" # 2024-10-20
   # VERSION = "3.1.5" # 2023-12-11
   # VERSION = "3.1.3" # 2023-04-18
