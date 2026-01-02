@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ActWithFlags
   VERSION = "3.1.10" # 2025-06-19
   # VERSION = "3.1.9" # 2024-10-20

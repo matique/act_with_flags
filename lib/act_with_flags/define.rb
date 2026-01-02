@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ActWithFlags::Admin
   def add_accessors(accessor, origin, mask)
     unless model.method_defined?(:act_with_flags)

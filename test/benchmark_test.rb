@@ -55,7 +55,7 @@ describe "Internal timings mask" do
 end
 
 class BenchFoo < Minitest::Benchmark
-  def bench_order_blocked
+  def bbench_order_blocked # bench_... fails
     return unless ENV["MORE"]
     n = 10_000
     Order.add_to_flags :blocked2

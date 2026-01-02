@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ActWithFlags::Admin
   def add_flag(name, pos, origin)
     range = ranges[origin]

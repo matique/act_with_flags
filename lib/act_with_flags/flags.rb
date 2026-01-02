@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ActWithFlags::Admin
   Location = Struct.new(:model, :origin, :position)
 
